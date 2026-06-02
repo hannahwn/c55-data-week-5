@@ -30,9 +30,9 @@ az login --use-device-code --tenant 07a14c4e-d88c-42f7-83b3-13af7e57ff3d
 
 ## Tasks at a glance
 
-> These task numbers match the Week 5 assignment chapter in your HackYourFuture Notion curriculum.
+These task numbers match the Week 5 assignment chapter in your HackYourFuture Notion curriculum.
 
-> 💡 **Task 7 credentials:** the `AZURE_CREDENTIALS` JSON your CI needs in Task 7 is the same for every student in the cohort. Your teacher DMs it to you over **Slack** before the assignment is due. Ping your teacher in your cohort channel if you have not received it by the time you reach Task 7.
+> 💡 **Task 7 credentials:** the `AZURE_CREDENTIALS` JSON your CI needs in Task 7 is the same for every student in the cohort. Your teacher DMs it to you over **Slack**. Ping your teacher in your cohort channel if you have not received it by the time you reach Task 7.
 
 | Task | What you do |
 |---|---|
