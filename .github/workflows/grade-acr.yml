@@ -50,6 +50,8 @@ jobs:
                 "",
                 "`${{ steps.build.outputs.image }}`",
                 "",
+                "Browse the registry in the Azure Portal: https://portal.azure.com/#@hackyourfuture.nl/resource/subscriptions/1120c89d-2a5f-4a15-a582-2ea34f0bb5c3/resourceGroups/rg-hyf-data/providers/Microsoft.ContainerRegistry/registries/hyfregistry/repository",
+                "",
                 "Task 7 verification: your Dockerfile built and pushed cleanly from commit `${{ steps.build.outputs.short_sha }}`."
               ].join("\n")
             })
