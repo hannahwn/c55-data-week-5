@@ -3,6 +3,7 @@
 import pytest
 
 from src.pipeline import fetch_data, get_config, save_results
+from src.ingest import download_inputs, upload_outputs
 
 
 class TestGetConfig:
@@ -59,3 +60,12 @@ class TestSaveResults:
         save_results([{"id": 1}, {"id": 2}], tmp_path)
         content = (tmp_path / "results.txt").read_text()
         assert len(content.strip().splitlines()) >= 2
+
+
+class TestDownloadInputs:
+    def test_downloads_files(self, tmp_path):
+        download_inputs(tmp_path)
+        for filename in ["messy_sales.csv", "messy_customers.csv"]:
+            assert (tmp_path / filename).exists()
+
+                 

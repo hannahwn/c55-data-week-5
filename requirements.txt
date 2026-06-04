@@ -11,3 +11,11 @@
 # ruff==
 #
 # Add your pinned dependencies below:
+
+pandas==2.2.2
+azure-identity==1.15.0
+azure-storage-blob==12.14.1
+python-dotenv==1.0.0    
+ruff==0.0.241
+pytest==7.3.1   
+
