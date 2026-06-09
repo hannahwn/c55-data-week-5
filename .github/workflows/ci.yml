@@ -28,3 +28,13 @@ jobs:
         run: pytest -q
       - name: Build image
         run: docker build -t hannahwn-pipeline:${{ github.sha }} .
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+             creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: ACR login
+        run: az acr login --name hyfregistry
+      - name: Push image
+        run: |
+             docker tag hannahwn-pipeline:${{ github.sha }} hyfregistry.azurecr.io/hannahwn-pipeline:${{ github.sha }}
+             docker push hyfregistry.azurecr.io/hannahwn-pipeline:${{ github.sha }}

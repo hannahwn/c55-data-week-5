@@ -12,7 +12,7 @@ from azure.storage.blob import BlobServiceClient
 load_dotenv()
 
 ACCOUNT_URL = os.getenv("ACCOUNT_URL", "https://c55data.blob.core.windows.net")
-SOURCE_CONTAINER = os.getenv("SOURCE_CONTAINER")
+SOURCE_CONTAINER = os.getenv("SOURCE_CONTAINER","week4-inputs")
 FILES = ["messy_sales.csv", "messy_customers.csv"]
 
 
@@ -24,16 +24,16 @@ def download_inputs(data_dir: Path) -> None:
     # TODO: Get a container client for SOURCE_CONTAINER.
     container_client = blob_service_client.get_container_client(SOURCE_CONTAINER)
     # TODO: For each filename in FILES, download the blob and write it to data_dir/<filename>.
-    for filename in FILES:
-       Path("data").mkdir(exist_ok=True)
+    data_dir.mkdir(parents=True, exist_ok=True)
+    
     for name in FILES:
-       blob = container_client.get_blob_client(name)
-    with open(f"data/{name}", "wb") as f:
-        f.write(blob.download_blob().readall())
+        blob = container_client.get_blob_client(name)
+        with open(f"{data_dir}/{name}", "wb") as f:
+             f.write(blob.download_blob().readall())
 
     # TODO: Log a message for each downloaded file.
     for filename in FILES:
-     logging.info("Downloaded %s", name)
+        logging.info("Downloaded %s", filename)
 
 
 def upload_outputs(output_dir: Path, github_username: str) -> None:
